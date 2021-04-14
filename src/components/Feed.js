@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getComments } from 'actions/comments'
 import { getPosts } from 'actions/posts'
 import { connect } from 'react-redux'
 
@@ -8,6 +9,7 @@ import 'styles/feed.scss'
 class Feed extends Component {
   async componentDidMount() {
     await this.props.getPosts()
+    await this.props.getComments()
   }
 
   render() {
@@ -23,6 +25,7 @@ class Feed extends Component {
 
 const mapStateToProps = ({ posts }) => ({ posts })
 const mapDispatchToProps = dispatch => ({
+  getComments: () => dispatch(getComments()),
   getPosts: () => dispatch(getPosts())
 })
 
