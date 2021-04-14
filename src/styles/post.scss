@@ -1,0 +1,9 @@
+.post {
+  border-radius: 4px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .15);
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
