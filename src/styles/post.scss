@@ -25,4 +25,11 @@
       text-transform: capitalize;
     }
   }
+
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .5s ease;
+  }
 }
