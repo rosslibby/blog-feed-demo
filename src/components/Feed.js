@@ -3,6 +3,7 @@ import { getComments } from 'actions/comments'
 import { getPosts } from 'actions/posts'
 import { connect } from 'react-redux'
 
+import Pagination from 'components/Pagination'
 import Post from 'components/Post'
 import 'styles/feed.scss'
 
@@ -13,17 +14,20 @@ class Feed extends Component {
   }
 
   render() {
-    const {posts} = this.props
+    const {pages, posts} = this.props
+    const pagePosts = posts.items ? posts.items.slice(pages.page * 10, (pages.page * 10) + 10) : []
+    console.log(pagePosts)
 
     return Array.isArray(posts.items) ? (
       <div className="feed">
-        {posts.items.map(post => <Post key={`post-${post.id}`} {...post} />)}
+        {pagePosts.map(post => <Post key={`post-${post.id}`} {...post} />)}
+        <Pagination />
       </div>
     ) : null
   }
 }
 
-const mapStateToProps = ({ posts }) => ({ posts })
+const mapStateToProps = ({ pages, posts }) => ({ pages, posts })
 const mapDispatchToProps = dispatch => ({
   getComments: () => dispatch(getComments()),
   getPosts: () => dispatch(getPosts())
