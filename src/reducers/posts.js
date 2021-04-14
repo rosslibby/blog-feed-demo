@@ -1,5 +1,4 @@
 const posts = (state, action) => {
-  console.log(state, action)
   switch(action.type) {
     case 'GET_POSTS':
       return {...state, items: action.posts}
