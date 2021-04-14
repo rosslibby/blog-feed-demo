@@ -1,8 +1,22 @@
 .post {
   background-color: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, .15);
+  border-bottom: 4px solid rgba(0, 0, 0, .15);
   box-sizing: border-box;
   font-family: Poppins, sans-serif;
   margin-bottom: 20px;
   padding: 20px;
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__body {
+    border-bottom: 1px solid rgba(9, 9, 9, .16);
+    box-sizing: border-box;
+    padding-bottom: 20px;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
 }
